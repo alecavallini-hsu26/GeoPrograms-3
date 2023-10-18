@@ -8,7 +8,7 @@ public class B3_HalfTheRed extends World {
         plane.teleport(0, 0);
         plane.showBackGround();
         System.out.println(plane.howMuchRed());
-        plane.pausetime=0;
+        plane.pausetime = 0;
 
         for (int row = 1; row < 800; row = row + 1) {
             for (int col = 1; col < 800; col++) {
@@ -18,16 +18,33 @@ public class B3_HalfTheRed extends World {
                 green = plane.howMuchGreen();
                 blue = plane.howMuchBlue();
                 int avg = (red + green + blue) / 8;
-                if (row > 140 && col < 15) {
-                    plane.setPixelColor(red / 3, green / 3, blue / 3);
-                }
-                if (row >140 && col <15){
-                    plane.setPixelColor(red/3, green, blue/3);
-                }
-//                else {
-//                    plane.setPixelColor(red,green,blue);
-//                }
+                if (col < 35) {
+                    plane.setPixelColor(100, avg / 5, col / 7);
 
+                } else if (col > 540) {
+                    plane.setPixelColor( 100, avg/5, col / 7);
+
+                } else if (row < 35 && col > 30 && col<545 ) {
+                    plane.setPixelColor( 100, avg/5, col/ 7);
+
+                } else if (row >725  && col > 30 && col<545) {
+                    plane.setPixelColor(100, avg/5, col/ 7);
+
+                } else if (red>95 && green>95 && blue>95) {
+                    plane.setPixelColor(red, green,blue);
+//
+//                }else if (red<30 && green<30 && blue<30) {
+//                    plane.setPixelColor(red, green,blue);
+
+                } else if(red>200&&green<65){
+                    plane.setPixelColor(red, green,blue);
+
+                }else if(green>150){
+                    plane.setPixelColor(red, green,blue);
+
+                } else {
+                    plane.setPixelColor(col/4, row/10, blue/4);
+                }
 
             }
         }
@@ -44,6 +61,8 @@ public class B3_HalfTheRed extends World {
 //        plane.move(500);
     }
 }
+
+
 
 
 /* 
